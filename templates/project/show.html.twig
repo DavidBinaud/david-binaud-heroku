@@ -9,27 +9,27 @@
             <div class="heading">
                 <h2>{{ projet.name }}</h2>
             </div>
-            <div class="image" style="background-image:url('{{  path(projet.pic_url) }}');"></div>
+            <div class="image" style="background-image:url({{ asset(projet.picUrl) }}); background-position: {{ projet.bgPosition }} !important;"></div>
             <div class="row">
                 <div class="col-12 col-md-6 offset-md-1 info">
                     <div>
                         <h3>Description<em style="font-size: 15px;"><br>{{ projet.skills }}<br><br></em></h3>
                     </div>
-                    {{ projet.description }}
+                    {{ projet.description|raw }}
                 </div>
                 <div class="col-12 col-md-3 offset-md-1 meta">
                     <div class="tags">
                         {% if projet.links|length > 0%}
                             <span class="meta-heading">Liens</span>
-                            {% for link in projet.links %}
-                                <a href="https://unity.com/fr">Unity</a>
-                                <a id="projetlinkCharlie" href="project-1-charlie-sanity-play.html"><strong>Projet jouable</strong></a>
+                            {% for link in projet.links|keys %}
+                                <a href="{{ projet.links[link] }}">{{ link }}</a>
                             {% endfor %}
                         {% endif %}
-                    <span class="meta-heading">Date</span><span>{{ projet.date }}</span>
-                        {% if projet.prize > 0 }
+                    <span class="meta-heading">Date</span><span>{{ projet.date|date("d/m/Y") }}</span>
+                        {% if projet.prize > 0 %}
                             <span class="meta-heading">Prix</span>
-                            </div><img src="{{ asset("assets/img/projet/prix{{ projet.prize }}.jpg") }}" style="width: 30%;">
+                            {% set prize_pic_url = 'assets/img/projet/prix' ~ projet.prize ~ '.jpg' %}
+                            </div><img src="{{ asset(prize_pic_url) }}" style="width: 30%;">
                         {% else %}
                     </div>
                         {% endif %}

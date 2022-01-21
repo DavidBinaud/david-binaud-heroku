@@ -59,6 +59,21 @@ class Project
      */
     private $tags;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $abstract;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $bg_position;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $can_be_seen;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
@@ -173,6 +188,42 @@ class Project
     public function removeTag(Tag $tag): self
     {
         $this->tags->removeElement($tag);
+
+        return $this;
+    }
+
+    public function getAbstract(): ?string
+    {
+        return $this->abstract;
+    }
+
+    public function setAbstract(string $abstract): self
+    {
+        $this->abstract = $abstract;
+
+        return $this;
+    }
+
+    public function getBgPosition(): ?string
+    {
+        return $this->bg_position;
+    }
+
+    public function setBgPosition(string $bg_position): self
+    {
+        $this->bg_position = $bg_position;
+
+        return $this;
+    }
+
+    public function getCanBeSeen(): ?bool
+    {
+        return $this->can_be_seen;
+    }
+
+    public function setCanBeSeen(bool $can_be_seen): self
+    {
+        $this->can_be_seen = $can_be_seen;
 
         return $this;
     }

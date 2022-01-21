@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProjetController!{% endblock %}
+{% block title %}Projets - David Binaud{% endblock %}
 
 {% block body %}
     <main class="page projects-page">
@@ -10,70 +10,16 @@
                     <h2>TRAVAIL <strong>RÉCENT</strong><br></h2>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="project-8-deepsoul.html"><img class="d-xl-flex card-img-top scale-on-hover" src="assets/img/projet/Deepsoul.jpg" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6><a href="project-8-deepsoul.html">DeepSoul</a></h6>
-                                <p class="text-muted card-text">Jeu vidéo 2D réalisé en 30h lors de la Code Game Jam 2022 avec le moteur Unity sous le thème "merveilles des profondeurs"</p>
+                    {% for project in projects %}
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card border-0"><a href="{{ path('project_show', {id: project.id}) }}"><img class="d-xl-flex card-img-top scale-on-hover" src="{{ asset(project.picUrl) }}" alt="Card Image"></a>
+                                <div class="card-body">
+                                    <h6><a href="{{ path('project_show', {id: project.id}) }}">{{ project.name }}</a></h6>
+                                    <p class="text-muted card-text">{{ project.abstract }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="project-7-mask-on.html"><img class="d-xl-flex card-img-top scale-on-hover" src="assets/img/projet/mask-on.jpg" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6><a href="#">MASK ON!</a></h6>
-                                <p class="text-muted card-text">Jeu vidéo 2D réalisé en 24h lors d'une Jam avec le moteur Unity sous le thème "À usage unique"</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="project-1-charlie-sanity.html"><img class="card-img-top scale-on-hover" src="assets/img/projet/CharliesSanity.jpg" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6><a href="#">Charlie's Sanity</a></h6>
-                                <p class="text-muted card-text">Jeu vidéo 3D réalisé en 30h lors de la Code Game Jam 2020 avec le moteur Unity sous le thème "cute &amp; creepy"</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="project-2-vizuic.html"><img class="card-img-top scale-on-hover" src="assets/img/projet/VIZUIC.jpg" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6><a href="#">VIZUIC</a></h6>
-                                <p class="text-muted card-text">Projet tutoré: Outil de Visualisation de l'Intelligence Collective</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="project-3-ecommerce.html"><img class="card-img-top scale-on-hover" src="assets/img/projet/Ecommerce.jpg" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6><a href="#">Ecommerce</a></h6>
-                                <p class="text-muted card-text">Site de Ecommerce réalisé dans le cadre de l'apprentissage du PHP</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="project-4-eportfolio.html"><img class="card-img-top scale-on-hover" src="assets/img/projet/eportfolio.jpg" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6><a href="#">ePortfolio - version 1</a></h6>
-                                <p class="text-muted card-text">Premier portfolio réalisé lors de mon second semestre à l'IUT</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="project-5-dominion.html"><img class="card-img-top scale-on-hover" src="assets/img/projet/dominion.jpg" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6><a href="#">Dominion</a></h6>
-                                <p class="text-muted card-text">Programmation du jeu de société "Dominion" en Java&nbsp;</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="project-6-amarok.html"><img class="card-img-top scale-on-hover" src="assets/img/projet/Amarok.jpg" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6><a href="#">Amarok</a></h6>
-                                <p class="text-muted card-text">Jeu vidéo 2D réalisé en 30h lors de la Code Game Jam 2019 avec le moteur Unity sous le thème "ballade dans les bois"<br><br></p>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
