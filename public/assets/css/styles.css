@@ -1,0 +1,80 @@
+.interest-icon {
+  color: #e53935;
+}
+
+.gradient {
+  background: linear-gradient(120deg,#9f0808,#e53935);
+  color: #fff;
+}
+
+.btn-outline-primary:hover, .btn-primary:hover {
+  color: #fff;
+  background-color: #9f0808;
+  border-color: #9f0808;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show > .btn-outline-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #9f0808;
+  border-color: #9f0808;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled).active:focus, .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 .2rem rgba(14,160,255,.5);
+}
+
+.btn-outline-primary, .btn-primary {
+  color: #9f0808;
+  border-color: #9f0808;
+  background-color: transparent;
+}
+
+.portfolio-block.skills {
+  border-bottom: 0px solid #ddd;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #9f0808 !important;
+  border-color: #9f0808;
+}
+
+.btn-primary.focus, .btn-primary:focus, .btn-primary:hover {
+  color: #fff;
+  background-color: #9f0808;
+  border-color: #9f0808;
+}
+
+.portfolio-block.cv .group .organization {
+  font-size: .85em;
+  background-color: #e53935;
+  display: inline-block;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 2em;
+}
+
+.progress-bar {
+  background-color: #e53935;
+}
+
+.portfolio-info-card.contact-info .icon {
+  color: #e53935;
+}
+
+@media (max-width: 1050px) {
+  #projetlinkCharlie, #projetlinkAmarok {
+    display: none;
+  }
+}
+
+.modals {
+}
+
+@media (min-width:576px) {
+  .modal-dialog {
+    max-width: 600px;
+    margin: 1.75rem auto;
+  }
+}
+

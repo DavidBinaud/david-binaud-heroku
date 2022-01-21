@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Main Page{% endblock %}
+
+{% block body %}
+    <main class="page lanidng-page">
+        <section class="portfolio-block block-intro">
+            <div class="container">
+                <div data-aos="fade" data-aos-once="true" class="avatar" style="background-image: url(&quot;assets/img/avatars/me.JPG&quot;);"></div>
+                <div class="about-me">
+                    <p class="text-justify">Bonjour! Je suis&nbsp;<strong>David Binaud&nbsp;</strong>et j'ai 26 ans. Je suis étudiant en licence professionnelle informatique en alternance au CNRS dans la structure OREME</p><a class="btn btn-outline-primary" role="button" href="contact.html">Contactez-moi</a></div>
+            </div>
+        </section>
+        <section class="portfolio-block photography">
+            <div class="container">
+                <div class="row no-gutters">
+                    <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="project-1-charlie-sanity.html"><img class="img-fluid image" src="assets/img/projet/CharliesSanity.jpg"></a></div>
+                    <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="project-2-vizuic.html"><img class="img-fluid image" src="assets/img/projet/VIZUIC.jpg"></a></div>
+                    <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="project-3-ecommerce.html"><img class="img-fluid image" src="assets/img/projet/Ecommerce.jpg"></a></div>
+                </div>
+            </div>
+        </section>
+        <section class="portfolio-block call-to-action border-bottom"></section>
+        <section class="portfolio-block skills">
+            <div class="container">
+                <div class="heading">
+                    <h2>Competences particulieres</h2>
+                </div>
+                <div class="row" data-aos="fade-down">
+                    <div class="col-md-4 d-xl-flex justify-content-xl-center align-items-xl-center">
+                        <div class="card special-skill-item border-0">
+                            <div class="card-header bg-transparent border-0"><i class="fas fa-server icon" style="background-color: #9f0808;"></i></div>
+                            <div class="card-body">
+                                <h3 class="card-title">Programmation Back-End</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-xl-flex justify-content-xl-center align-items-xl-center">
+                        <div class="card special-skill-item border-0">
+                            <div class="card-header bg-transparent border-0"><i class="material-icons icon" style="background-color: #9f0808;">web</i></div>
+                            <div class="card-body">
+                                <h3 class="card-title">Web Design</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-xl-flex justify-content-xl-center align-items-xl-center">
+                        <div class="card special-skill-item border-0">
+                            <div class="card-header bg-transparent border-0"><i class="fas fa-pencil-ruler icon" style="background-color: #9f0808;"></i></div>
+                            <div class="card-body">
+                                <h3 class="card-title">Conception</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
