@@ -10,8 +10,8 @@ class ProjetFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
+        $projet = new Projet();
+        $manager->persist($projet);
 
         $manager->flush();
     }
