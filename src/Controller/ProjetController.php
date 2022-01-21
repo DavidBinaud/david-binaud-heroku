@@ -16,7 +16,7 @@ class ProjetController extends AbstractController
     {
         return $this->render('project/index.html.twig', [
             'controller_name' => 'ProjetController',
-            //'projets' => $this->getDoctrine()->getRepository(Project::class)->findAll()
+            'projets' => $this->getDoctrine()->getRepository(Project::class)->findAll()
         ]);
     }
 
@@ -25,9 +25,9 @@ class ProjetController extends AbstractController
      */
     public function show(int $id): Response
     {
-        return $this->render('project/how.html.twig', [
+        return $this->render('project/show.html.twig', [
             'controller_name' => 'ProjetController',
-            //'projet' => $this->getDoctrine()->getRepository(Project::class)->find($id)
+            'projet' => $this->getDoctrine()->getRepository(Project::class)->find($id)
         ]);
     }
 }
