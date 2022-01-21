@@ -39,20 +39,14 @@
             <div class="more-projects">
                 <h3 class="text-center">Plus de Projets</h3>
                 <div class="row gallery">
-                    <div class="col-md-4 col-lg-3">
-                        <div class="item"><a href="project-2-vizuic.html"><img class="img-fluid scale-on-hover" src="{{ asset("assets/img/projet/VIZUIC.jpg") }}"></a></div>
-                    </div>
-                    <div class="col-md-4 col-lg-3">
-                        <div class="item"><a href="project-3-ecommerce.html"><img class="img-fluid scale-on-hover" src="{{ asset("assets/img/projet/Ecommerce.jpg") }}"></a></div>
-                    </div>
-                    <div class="col-md-4 col-lg-3">
-                        <div class="item"><a href="project-4-eportfolio.html"><img class="img-fluid scale-on-hover" src="{{ asset("assets/img/projet/eportfolio.jpg") }}"></a></div>
-                    </div>
-                    <div class="col-md-4 col-lg-3">
-                        <div class="item"><a href="project-5-dominion.html"><img class="img-fluid scale-on-hover" src="{{ asset("assets/img/projet/dominion.jpg") }}"></a></div>
-                    </div>
+                    {% for other_project in others %}
+                        <div class="col-md-4 col-lg-3">
+                            <div class="item"><a href="{{ path("project_show", {id: other_project.id}) }}"><img class="img-fluid scale-on-hover" src="{{ asset(other_project.picUrl) }}"></a></div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
+            {{ projet.modalRaw|raw }}
         </div>
     </section>
 </main>

@@ -8,9 +8,9 @@
         <section class="portfolio-block photography">
             <div class="container">
                 <div class="row no-gutters">
-                    <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="project-1-charlie-sanity.html"><img class="img-fluid image" src="assets/img/projet/CharliesSanity.jpg"></a></div>
-                    <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="project-2-vizuic.html"><img class="img-fluid image" src="assets/img/projet/VIZUIC.jpg"></a></div>
-                    <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="project-3-ecommerce.html"><img class="img-fluid image" src="assets/img/projet/Ecommerce.jpg"></a></div>
+                    {% for project in projects %}
+                        <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="{{ path("project_show", {id: project.id}) }}"><img class="img-fluid image" src="{{ asset(project.picUrl) }}"></a></div>
+                    {% endfor %}
                 </div>
             </div>
         </section>

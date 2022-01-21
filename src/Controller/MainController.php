@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,6 +16,7 @@ class MainController extends AbstractController
     {
         return $this->render('index.html.twig', [
             'controller_name' => 'MainController',
+            'projects' => $this->getDoctrine()->getRepository(Project::class)->findLastThree()
         ]);
     }
 

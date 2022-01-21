@@ -42,14 +42,14 @@
         {% block body %}{% endblock %}
         {% include('footer.html.twig') %}
         {% block javascripts_perso %}
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-            <script src="assets/js/smart-forms.min.js"></script>
-            <script src="assets/js/bs-init.js"></script>
+            <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+            <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('assets/js/smart-forms.min.js') }}"></script>
+            <script src="{{ asset('assets/js/bs-init.js') }}"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
-            <script src="assets/js/theme.js"></script>
+            <script src="{{ asset('assets/js/theme.js') }}"></script>
         {% endblock %}
     </body>
 </html>

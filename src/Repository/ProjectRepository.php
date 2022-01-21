@@ -9,7 +9,6 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @method Project|null find($id, $lockMode = null, $lockVersion = null)
  * @method Project|null findOneBy(array $criteria, array $orderBy = null)
- * @method Project[]    findAll()
  * @method Project[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class ProjectRepository extends ServiceEntityRepository
@@ -17,6 +16,33 @@ class ProjectRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Project::class);
+    }
+
+    /**
+     * @method Project[]    findAll()
+     * */
+    public function findAll(){
+        return $this->findBy(array(), array("date" => "DESC"));
+    }
+
+    /**
+     * @method Project[]    findLastFourNotCurrent($id)
+     * */
+    public function findLastFourNotCurrent($id){
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.id != :id')
+            ->setParameter('id', $id)
+            ->orderBy('p.date', 'DESC')
+            ->setMaxResults(4)
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @method Project[]    findLastThree()
+     * */
+    public function findLastThree(){
+        return $this->findBy(array(), array("date" => "DESC"), 3);
     }
 
     // /**

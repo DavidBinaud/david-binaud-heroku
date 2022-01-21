@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ProjectRepository;
+use App\Repository\TagsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -73,6 +74,11 @@ class Project
      * @ORM\Column(type="boolean")
      */
     private $can_be_seen;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $modal_raw;
 
     public function __construct()
     {
@@ -224,6 +230,18 @@ class Project
     public function setCanBeSeen(bool $can_be_seen): self
     {
         $this->can_be_seen = $can_be_seen;
+
+        return $this;
+    }
+
+    public function getModalRaw(): ?string
+    {
+        return $this->modal_raw;
+    }
+
+    public function setModalRaw(?string $modal_raw): self
+    {
+        $this->modal_raw = $modal_raw;
 
         return $this;
     }
