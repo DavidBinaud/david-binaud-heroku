@@ -1,0 +1,195 @@
+body{
+	font-family: 'Roboto', sans-serif;
+}
+
+#wrapper {
+  max-width: 970px;
+}
+
+#avatar{
+  width: 123px; height: 123px;
+}
+
+#avatarName{
+  padding-left: 5px;
+}
+
+
+h2,h3{
+  text-decoration: underline;
+}
+
+.card-image{
+    height: 400px;
+    overflow: hidden;
+}
+
+
+.menuItems{
+  padding-bottom: -5px;
+}
+
+.profile-title {
+  display: inline-block;
+  color : white;
+  width: 150px;
+  margin-bottom: 8px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.profile-desc {
+  display: inline-block;
+  color: #bdbdbd;
+  margin-bottom: 8px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.social-icons li {
+  display: inline-block;
+  padding: 0px 9px;
+}
+
+.row {
+  margin-bottom: 0px;
+}
+
+img.avatar {
+  margin-top: 20px;
+}
+
+.parallax-container1 {
+    height: 600px;
+}
+
+.info ul {
+  display: inline-block;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+}
+.info p {
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 20px !important;
+  font-family: 'Roboto', sans-serif;
+}
+
+.first-card, #sidenav,.interest{
+	background-color: #2b2b2b;
+}
+
+.active{
+	border-bottom: 4px solid #ff5722;
+}
+
+#whoami{
+  padding-bottom:50px;
+}
+
+.interest-icon1{
+	color : #03a9f4;
+}
+
+.interest-icon2{
+	color : yellow;
+}
+
+.interest-icon3{
+	color : red;
+}
+
+
+
+#CarteMentale{
+  width: 680px;
+  width: 960px;
+  padding-bottom: 100px;
+}
+
+
+.text{
+  text-align: justify;
+}
+
+
+#Competences{
+  margin-bottom: 150px;
+}
+
+#Realisations{
+  padding-bottom: 5%;
+}
+
+@media screen and (max-width:1024px) {
+#CarteMentale{
+  width: 640px;
+  height: 480px;
+}
+
+}
+
+
+
+@media screen and (max-width: 640px) {
+  .parallax-container1 {
+    height: 900px;
+	}
+
+.parallax-container2 {
+    height: 400px;
+	}
+
+  #CarteMentale{
+  height: 360px;
+  width: 480px;
+  }
+
+  #NuageMots{
+    height: 360px;
+    width: 360px;
+  }
+
+  .brandText{
+    font-size: small;
+  }
+
+  .card-image{
+    height: 360px;
+    overflow: hidden;
+}
+}
+
+@media screen and (max-width: 480px) {
+  .parallax-container1 {
+    height: 1100px;
+  }
+
+.parallax-container2 {
+    height: 400px;
+  }
+
+  #CarteMentale{
+  height: 200px;
+  width: 320px;
+  }
+
+  #NuageMots{
+    height: 240px;
+    width: 240px;
+  }
+
+  .brandText{
+    font-size: small;
+  }
+
+  .interestText{
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .card-image{
+    height: 240px;
+    overflow: hidden;
+}
+}

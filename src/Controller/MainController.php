@@ -37,15 +37,5 @@ class MainController extends AbstractController
             'controller_name' => 'MainController',
         ]);
     }
-
-    /**
-     * @Route("/projects", name="projects")
-     */
-    public function projects(): Response
-    {
-        return $this->render('index.html.twig', [
-            'controller_name' => 'MainController',
-            'route' => 'projets'
-        ]);
-    }
+    
 }

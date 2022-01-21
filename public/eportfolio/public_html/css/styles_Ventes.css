@@ -1,0 +1,40 @@
+.dev
+{
+	width: 20%;
+	height: 30%;
+}
+
+.exref
+{
+	width: 20%;
+	height: 30%;
+}
+
+.tman
+{
+	width: 20%;
+	height: 30%;
+}
+
+body
+{
+	height: 100%;
+}
+
+p
+{
+	width: 95%;
+}
+
+tbody tr {
+	background-color: gray;
+	text-align: center;
+	border: 5px;
+	border-color: black;
+}
+table {
+	border: 5px;
+	border-color: black;
+}
+
+

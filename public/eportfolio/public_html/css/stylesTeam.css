@@ -1,0 +1,89 @@
+p {
+	width: 95%;
+	text-align: justify;
+}
+
+main {
+	max-width: 1000px;
+	width: 80%;
+	margin: auto;
+}
+
+#Corentin {
+	width: 200px;
+	height:200px;
+	display: flex;
+    margin: auto;
+    float: right;
+}
+
+#Jean {
+	width: 150px;
+	height:210px;
+	display: flex;
+    margin: auto;
+    float: left;
+}
+
+#David {
+	width: 200px;
+	height:356px;
+	display: flex;
+    margin: auto;
+    float: right;
+}
+
+#Andy {
+	width: 200px;
+	height:356px;
+	display: flex;
+    margin: auto;
+    float: left;
+}
+
+.Linkedin {
+	width: 100px;
+	height:100px;
+	display: flex;
+    margin: auto;
+}
+
+.WikiLogo { 
+	width: 100px;
+	height:100px;
+	display: flex;
+    margin: auto;
+}
+
+fieldset {
+	margin :10px;
+	max-width:400px;
+}
+
+main img {
+
+	width: 200px;
+	padding:10px;
+}
+
+ /* ------ Concernant le système de grid -------*/
+
+.Grid {
+	display: flex;
+	flex-wrap:wrap;
+}
+
+.Grid-cell {
+	margin:20px;
+	margin:auto;
+}
+
+.Grid--center {
+  align-items: center;
+}
+
+
+.Grid-cell--center {
+  align-self: center;
+}
+

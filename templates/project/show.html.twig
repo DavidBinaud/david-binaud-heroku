@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ projet.name }}{% endblock %}
+
+{% block body %}
+<main class="page project-page">
+    <section class="portfolio-block project">
+        <div class="container">
+            <div class="heading">
+                <h2>{{ projet.name }}</h2>
+            </div>
+            <div class="image" style="background-image:url('{{  path(projet.pic_url) }}');"></div>
+            <div class="row">
+                <div class="col-12 col-md-6 offset-md-1 info">
+                    <div>
+                        <h3>Description<em style="font-size: 15px;"><br>{{ projet.skills }}<br><br></em></h3>
+                    </div>
+                    {{ projet.description }}
+                </div>
+                <div class="col-12 col-md-3 offset-md-1 meta">
+                    <div class="tags">
+                        {% if projet.links|length > 0%}
+                            <span class="meta-heading">Liens</span>
+                            {% for link in projet.links %}
+                                <a href="https://unity.com/fr">Unity</a>
+                                <a id="projetlinkCharlie" href="project-1-charlie-sanity-play.html"><strong>Projet jouable</strong></a>
+                            {% endfor %}
+                        {% endif %}
+                    <span class="meta-heading">Date</span><span>{{ projet.date }}</span>
+                        {% if projet.prize > 0 }
+                            <span class="meta-heading">Prix</span>
+                            </div><img src="{{ asset("assets/img/projet/prix{{ projet.prize }}.jpg") }}" style="width: 30%;">
+                        {% else %}
+                    </div>
+                        {% endif %}
+
+                </div>
+            </div>
+            <div class="more-projects">
+                <h3 class="text-center">Plus de Projets</h3>
+                <div class="row gallery">
+                    <div class="col-md-4 col-lg-3">
+                        <div class="item"><a href="project-2-vizuic.html"><img class="img-fluid scale-on-hover" src="assets/img/projet/VIZUIC.jpg"></a></div>
+                    </div>
+                    <div class="col-md-4 col-lg-3">
+                        <div class="item"><a href="project-3-ecommerce.html"><img class="img-fluid scale-on-hover" src="assets/img/projet/Ecommerce.jpg"></a></div>
+                    </div>
+                    <div class="col-md-4 col-lg-3">
+                        <div class="item"><a href="project-4-eportfolio.html"><img class="img-fluid scale-on-hover" src="assets/img/projet/eportfolio.jpg"></a></div>
+                    </div>
+                    <div class="col-md-4 col-lg-3">
+                        <div class="item"><a href="project-5-dominion.html"><img class="img-fluid scale-on-hover" src="assets/img/projet/dominion.jpg"></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

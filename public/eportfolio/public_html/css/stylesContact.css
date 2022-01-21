@@ -1,0 +1,48 @@
+/* BODY */
+body
+{
+	height: 100%;
+	margin : 0 auto;
+	padding:0;
+	perspective: 1px;
+	transform-style: preserve-3d;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+/*	MAIN */
+
+main
+{
+	text-align: center;
+}
+
+p
+{
+	width: 95%;
+}
+
+/* form */
+fieldset {
+	width: 50%;
+	text-align: left;
+	display: inline;
+}
+
+textarea{
+	width:99%;
+}
+
+.required{
+	color: red;
+}
+
+#input{
+	display: block;
+	margin:10px auto;}
+/* end form */
+
+
+
+/* #141414 */
+
