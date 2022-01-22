@@ -76,7 +76,7 @@ class ProjetFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($projet);
 
         $projet = new Project();
-        $projet->setName("Charlie's Sanity")
+        $projet->setName("VIZUIC")
             ->setDate(\DateTime::createFromFormat("d/m/Y", "03/01/2020"))
             ->setAbstract("Projet tutoré: Outil de Visualisation de l'Intelligence Collective")
             ->setPicUrl("assets/img/projet/VIZUIC.jpg")
@@ -91,6 +91,74 @@ class ProjetFixtures extends Fixture implements DependentFixtureInterface
                             les comparer.</p>
                         <p>On peut ainsi télécharger ces graphiques pour les ajouter dans des travaux de recherche.</p>")
             ->addTag($this->getReference(TagFixtures::TAG_REF . "WEB"));
+        $manager->persist($projet);
+
+        $projet = new Project();
+        $projet->setName("Ecommerce")
+            ->setDate(\DateTime::createFromFormat("d/m/Y", "05/12/2019"))
+            ->setAbstract("Site de Ecommerce réalisé dans le cadre de l'apprentissage du PHP")
+            ->setPicUrl("assets/img/projet/Ecommerce.jpg")
+            ->setPrize(0)
+            ->setSkills("HTML / CSS / PHP / SQL")
+            ->setLinks(["Ressource" => "http://romainlebreton.github.io/ProgWeb-CoteServeur/",
+                "Github" => "https://github.com/DavidBinaud/eCommerce"])
+            ->setBgPosition("")
+            ->setCanBeSeen(false)
+            ->setDescription("<p>Ce site est un site eCommerce réalisé en PHP par mon groupe de travail de 3 personnes dans le cadre de l'apprentissage de ce langage.</p>
+                        <p>Le choix des produits à vendre était à l'appréciation du groupe, étant joueurs du jeu World of Tanks nous avons donc choisi des tanks.<br></p>
+                        <p>Le site implémente des comptes grâce à une base de donnée, il gère les connexions grâce à un système de sessions. Les mots de passes sont salés et cryptés. Il est possible de se créer un compte en rentrant ses informations et en
+                            activant son compte via le mail reçu.<br>Le site comporte aussi un systeme de recherche de produit par le nom.</p>")
+            ->addTag($this->getReference(TagFixtures::TAG_REF . "WEB"));
+        $manager->persist($projet);
+
+        $projet = new Project();
+        $projet->setName("ePortfolio - version 1")
+            ->setDate(\DateTime::createFromFormat("d/m/Y", "25/04/2019"))
+            ->setAbstract("Premier portfolio réalisé lors de mon second semestre à l'IUT")
+            ->setPicUrl("assets/img/projet/eportfolio.jpg")
+            ->setPrize(0)
+            ->setSkills("HTML / CSS / JAVASCRIPT")
+            ->setLinks(["Projet" => "eportfolio/index.html",
+                "Github" => "https://github.com/DavidBinaud/Eportfolio-version-1"])
+            ->setBgPosition("")
+            ->setCanBeSeen(false)
+            ->setDescription("<p>Ce projet est mon premier site eportfolio que j'ai réalisé en fin de première année.</p>
+                        <p>Pour ce projet j'ai tenté de respecter les principes de material design. Trouvant des défauts à mon portfolio, j'ai donc décidé d'en créer un autre.</p>")
+            ->addTag($this->getReference(TagFixtures::TAG_REF . "WEB"));
+        $manager->persist($projet);
+
+        $projet = new Project();
+        $projet->setName("Dominion")
+            ->setDate(\DateTime::createFromFormat("d/m/Y", "25/03/2019"))
+            ->setAbstract("Programmation du jeu de société \"Dominion\" en Java ")
+            ->setPicUrl("assets/img/projet/dominion.jpg")
+            ->setPrize(0)
+            ->setSkills("Java")
+            ->setLinks(["Projet du professeur" => "https://games.zanapher.fr/",
+                "Github" => "https://github.com/DavidBinaud/DominionPerso"])
+            ->setBgPosition("")
+            ->setCanBeSeen(false)
+            ->setDescription("<p><em>Dominion</em>&nbsp;est un jeu de cartes inventé par Donald X. Vaccarino pour 2 à 4 joueurs. C'est un jeu de&nbsp;<em>construction de deck</em>&nbsp;où les joueurs doivent à tour de rôle jouer des cartes de leur main pour obtenir
+                            de nouvelles cartes parmi un ensemble commun disponible. Lorsque la partie s'arrête le joueur possédant le plus de points de victoire dans son deck est déclaré vainqueur.<br></p>
+                        <p>Nous avons programmé chaque carte du jeu de base en utilisant les principes SOLID et le pattern Fabrique appris en cours.<br></p>
+                        <p>Le jeu que nous avons codé n'est pas accessible sur le web mais une version du professeur est disponible.<br></p>")
+            ->addTag($this->getReference(TagFixtures::TAG_REF . "GAMES"));
+        $manager->persist($projet);
+
+        $projet = new Project();
+        $projet->setName("Amarok")
+            ->setDate(\DateTime::createFromFormat("d/m/Y", "20/01/2019"))
+            ->setAbstract("Jeu vidéo 2D réalisé en 30h lors de la Code Game Jam 2019 avec le moteur Unity sous le thème \"ballade dans les bois\"")
+            ->setPicUrl("assets/img/projet/Amarok.jpg")
+            ->setPrize(0)
+            ->setSkills("Unity / C#")
+            ->setLinks(["Unity" => "https://unity.com/fr",
+                "Github" => "https://github.com/DavidBinaud/eCommerce"])
+            ->setBgPosition("")
+            ->setCanBeSeen(true)
+            ->setDescription("<p>C'est un jeu 2D réalisé Lors de la Code Game Jam 2019 qui est une compétition de programmation de jeu en 30h par groupe. Nous étions six personnes sur ce projet. Le thème de cette année était \"Ballade en forêt\"<br><br></p>
+                        <p>Nous avons utilisé Unity pour réaliser ce jeu. Sans connaissance préalable de cet outil. Mais la détermination et l'envie d'apprendre/comprendre nous a permis de produire ce petit jeu dans un temps limité.&nbsp;<br></p>")
+            ->addTag($this->getReference(TagFixtures::TAG_REF . "GAMES"));
         $manager->persist($projet);
 
         $manager->flush();

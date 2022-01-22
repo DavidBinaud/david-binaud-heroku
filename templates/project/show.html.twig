@@ -36,16 +36,7 @@
 
                 </div>
             </div>
-            <div class="more-projects">
-                <h3 class="text-center">Plus de Projets</h3>
-                <div class="row gallery">
-                    {% for other_project in others %}
-                        <div class="col-md-4 col-lg-3">
-                            <div class="item"><a href="{{ path("project_show", {id: other_project.id}) }}"><img class="img-fluid scale-on-hover" src="{{ asset(other_project.picUrl) }}"></a></div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
+            {% include('project/more.html.twig') %}
             {{ projet.modalRaw|raw }}
         </div>
     </section>

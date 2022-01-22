@@ -25,9 +25,7 @@ class MainController extends AbstractController
      */
     public function cv(): Response
     {
-        return $this->render('index.html.twig', [
-            'controller_name' => 'MainController',
-        ]);
+        return $this->render('cv.html.twig');
     }
 
     /**
@@ -35,9 +33,7 @@ class MainController extends AbstractController
      */
     public function contact(): Response
     {
-        return $this->render('index.html.twig', [
-            'controller_name' => 'MainController',
-        ]);
+        return $this->render('contact.html.twig');
     }
     
 }

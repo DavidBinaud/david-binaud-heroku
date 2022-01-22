@@ -16,7 +16,17 @@ class ProjetController extends AbstractController
     public function index(): Response
     {
         return $this->render('project/index.html.twig', [
-            'controller_name' => 'ProjetController',
+            'projects' => $this->getDoctrine()->getRepository(Project::class)->findAll(),
+            //'tags' => $this->>getDoctrine()->getRepository(Tagcs::class)->findAll()
+        ]);
+    }
+
+    /**
+     * @Route("/projets_tagged/{tag}", name="projects_by_tag")
+     */
+    public function indexTag($tag): Response
+    {
+        return $this->render('project/index.html.twig', [
             'projects' => $this->getDoctrine()->getRepository(Project::class)->findAll()
         ]);
     }
@@ -32,11 +42,10 @@ class ProjetController extends AbstractController
         }
         $game_tag = $this->getDoctrine()->getRepository(Tag::class)->findOneBy(["name" => "GAMES"]);
 
-        if($projet->getTags()->contains($game_tag)){
+        if($projet->getTags()->contains($game_tag) && $projet->getCanBeSeen()){
             $projet->setLinks(array_merge($projet->getLinks(),["Projet Jouable" => $this->generateUrl("project_show_game", ["id" => $projet->getId()])]));
         }
         return $this->render('project/show.html.twig', [
-            'controller_name' => 'ProjetController',
             'projet' => $projet,
             'others' => $this->getDoctrine()->getRepository(Project::class)->findLastFourNotCurrent($projet->getId())
         ]);
@@ -47,9 +56,9 @@ class ProjetController extends AbstractController
      */
     public function showGame(int $id): Response
     {
-        return $this->render('project/show.html.twig', [
-            'controller_name' => 'ProjetController',
-            'projet' => $this->getDoctrine()->getRepository(Project::class)->find($id)
+        return $this->render('project/play.html.twig', [
+            'projet' => $this->getDoctrine()->getRepository(Project::class)->find($id),
+            'others' => $this->getDoctrine()->getRepository(Project::class)->findLastFourNotCurrent($id)
         ]);
     }
 }

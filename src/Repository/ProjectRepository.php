@@ -45,6 +45,8 @@ class ProjectRepository extends ServiceEntityRepository
         return $this->findBy(array(), array("date" => "DESC"), 3);
     }
 
+    //FIND BY TAG
+
     // /**
     //  * @return Project[] Returns an array of Project objects
     //  */
