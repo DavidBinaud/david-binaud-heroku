@@ -80,6 +80,11 @@ class Project
      */
     private $modal_raw;
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $playAssets = [];
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
@@ -242,6 +247,18 @@ class Project
     public function setModalRaw(?string $modal_raw): self
     {
         $this->modal_raw = $modal_raw;
+
+        return $this;
+    }
+
+    public function getPlayAssets(): ?array
+    {
+        return $this->playAssets;
+    }
+
+    public function setPlayAssets(?array $playAssets): self
+    {
+        $this->playAssets = $playAssets;
 
         return $this;
     }

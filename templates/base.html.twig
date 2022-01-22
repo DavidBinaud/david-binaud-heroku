@@ -36,6 +36,9 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
+        {% block stylesheets_play %}{% endblock %}
+
     </head>
     <body>
         {% include('navbar.html.twig') %}
@@ -51,5 +54,7 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
             <script src="{{ asset('assets/js/theme.js') }}"></script>
         {% endblock %}
+
+        {% block javascripts_play %}{% endblock %}
     </body>
 </html>

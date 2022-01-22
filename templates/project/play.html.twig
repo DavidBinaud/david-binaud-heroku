@@ -2,6 +2,12 @@
 
 {% block title %}{{ projet.name }}{% endblock %}
 
+{% block stylesheets_play %}
+    {% for css_src in projet.playAssets["css"] %}
+        <link rel="stylesheet" href="{{ asset(css_src) }}">
+    {% endfor %}
+{% endblock %}
+
 {% block body %}
     <main class="page project-page">
         <section class="portfolio-block project">
@@ -21,4 +27,13 @@
             </div>
         </section>
     </main>
+{% endblock %}
+
+{% block javascripts_play %}
+    {% for script_src in projet.playAssets["scripts"]["src"] %}
+        <script src="{{ asset(script_src) }}"></script>
+    {% endfor %}
+    {% for script_raw in projet.playAssets["scripts"]["raw"] %}
+        <script>{{ script_raw }}</script>
+    {% endfor %}
 {% endblock %}

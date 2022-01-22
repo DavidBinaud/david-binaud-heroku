@@ -158,9 +158,18 @@ class ProjetFixtures extends Fixture implements DependentFixtureInterface
             ->setCanBeSeen(true)
             ->setDescription("<p>C'est un jeu 2D réalisé Lors de la Code Game Jam 2019 qui est une compétition de programmation de jeu en 30h par groupe. Nous étions six personnes sur ce projet. Le thème de cette année était \"Ballade en forêt\"<br><br></p>
                         <p>Nous avons utilisé Unity pour réaliser ce jeu. Sans connaissance préalable de cet outil. Mais la détermination et l'envie d'apprendre/comprendre nous a permis de produire ce petit jeu dans un temps limité.&nbsp;<br></p>")
-            ->addTag($this->getReference(TagFixtures::TAG_REF . "GAMES"));
+            ->addTag($this->getReference(TagFixtures::TAG_REF . "GAMES"))
+            ->setPlayAssets([
+                "scripts" => [
+                    "src" => [
+                        "Amarok/TemplateData/UnityProgress.js",
+                        "Amarok/Build/UnityLoader.js"
+                    ],
+                    "raw" => ["var gameInstance = UnityLoader.instantiate(\"unityContainer\", {{ asset(\"Amarok/Build/Amarok- WebGl.json\") }}, {onProgress: UnityProgress});"]
+                ],
+                "css" => ["Amarok/TemplateData/style.css"]
+            ]);
         $manager->persist($projet);
-
         $manager->flush();
     }
 
