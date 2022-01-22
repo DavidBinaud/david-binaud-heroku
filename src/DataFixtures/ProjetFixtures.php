@@ -24,7 +24,68 @@ class ProjetFixtures extends Fixture implements DependentFixtureInterface
             ->setDescription("<p>C'est un jeu 2D réalisé Lors de la Code Game Jam 2022 qui est une compétition de programmation de jeu en 30h par groupe. Nous étions cinq personnes sur ce projet. Le thème de cette année était \"Merveilles des profondeurs\"<br><br></p>
                         <p>Nous avons utilisé Unity pour réaliser ce jeu. Nous avions déjà des connaissances préalables sur cet outil et sur du C#.<br></p>
                         <p>Nous avons obtenu la troisième place avec notre projet.</p>")
-            ->addTag($this->getReference(TagFixtures::TAG_REF . "GAMES"));
+            ->addTag($this->getReference(TagFixtures::TAG_REF . "GAMES"))
+            ->setPlayAssets([
+                "scripts" => [
+                    "src" => [
+                        "Mask-on/TemplateData/UnityProgress.js",
+                        "Mask-on/Build/UnityLoader.js"
+                    ],
+                    "raw" => [
+                        ["var container = document.querySelector(\"#unity-container\");
+                            var canvas = document.querySelector(\"#unity-canvas\");
+                            var loadingBar = document.querySelector(\"#unity-loading-bar\");
+                            var progressBarFull = document.querySelector(\"#unity-progress-bar-full\");
+                            var fullscreenButton = document.querySelector(\"#unity-fullscreen-button\");
+                    
+                    
+                            var buildUrl = \"",
+
+                            "DeepSoulWebGL/Build",
+
+                            "\";
+                            var loaderUrl = buildUrl + \"/DeepSoulWebGL.loader.js\";
+                            var config = {
+                                dataUrl: buildUrl + \"/DeepSoulWebGL.data.gz\",
+                                frameworkUrl: buildUrl + \"/DeepSoulWebGL.framework.js.gz\",
+                                codeUrl: buildUrl + \"/DeepSoulWebGL.wasm.gz\",
+                                streamingAssetsUrl: \"StreamingAssets\",
+                                companyName: \"JeSappelleGroot\",
+                                productName: \"DeepSoul\",
+                                productVersion: \"2.1.0\",
+                            };
+                    
+                    
+                            if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                                container.className = \"unity-mobile\";
+                                config.devicePixelRatio = 1;
+                                unityShowBanner('WebGL builds are not supported on mobile devices.');
+                            } else {
+                                canvas.style.width = \"960px\";
+                                canvas.style.height = \"600px\";
+                            }
+                            loadingBar.style.display = \"block\";
+                    
+                            var script = document.createElement(\"script\");
+                            script.src = loaderUrl;
+                            script.onload = () => {
+                                createUnityInstance(canvas, config, (progress) => {
+                                    progressBarFull.style.width = 100 * progress + \"%\";
+                                }).then((unityInstance) => {
+                                    loadingBar.style.display = \"none\";
+                                    fullscreenButton.onclick = () => {
+                                        unityInstance.SetFullscreen(1);
+                                    };
+                                }).catch((message) => {
+                                    alert(message);
+                                });
+                            };
+                            document.body.appendChild(script);"
+                                            ]
+                    ]
+                ],
+                "css" => ["DeepSoulWebGL/TemplateData/style.css"]
+            ]);
         $manager->persist($projet);
 
         $projet = new Project();
@@ -40,7 +101,22 @@ class ProjetFixtures extends Fixture implements DependentFixtureInterface
             ->setDescription("<p>C'est un jeu 2D réalisé lors d'une Jam entre amis en Juillet 2020 en 24 heures. Chaque projet est individuel. Le thème&nbsp; était \"À usage unique\".<br><br></p>
                         <p>J'ai choisi d'utiliser Unity pour ce projet car j'ai déjà pu expérimenter avec cet outil lors de Jams précédentes. Ce projet m'a permis de réfléchir à l'idée, la conceptualiser et la produire tout seul.<br></p>
                         <p>Le jeu réalisé consiste à appliquer des masques aux personnages qui apparaissent et se dirigent vers des magasins, chaque personne qui entre dans un magasin sans masque fait perdre une vie dans la limite de trois erreurs possibles.</p>")
-            ->addTag($this->getReference(TagFixtures::TAG_REF . "GAMES"));
+            ->addTag($this->getReference(TagFixtures::TAG_REF . "GAMES"))
+            ->setPlayAssets([
+                "scripts" => [
+                    "src" => [
+                        "Mask-on/TemplateData/UnityProgress.js",
+                        "Mask-on/Build/UnityLoader.js"
+                    ],
+                    "raw" => [
+                        ["var unityInstance = UnityLoader.instantiate(\"unityContainer\", \"",
+                            "Mask-on/Build/WEBGL.json",
+                            "\", {onProgress: UnityProgress});"
+                        ]
+                    ]
+                ],
+                "css" => ["Mask-on/TemplateData/style.css"]
+            ]);
         $manager->persist($projet);
 
         $projet = new Project();
@@ -72,7 +148,23 @@ class ProjetFixtures extends Fixture implements DependentFixtureInterface
         </div>
     </div>
 </div>")
-            ->addTag($this->getReference(TagFixtures::TAG_REF . "GAMES"));
+            ->addTag($this->getReference(TagFixtures::TAG_REF . "GAMES"))
+            ->setPlayAssets([
+                "scripts" => [
+                    "src" => [
+                        "CS/TemplateData/UnityProgress.js",
+                        "CS/Build/UnityLoader.js"
+                    ],
+                    "raw" => [
+                        ["var unityInstance = UnityLoader.instantiate(\"unityContainer\", \"",
+                            "CS/Build/WebGL Charlie's Sanity.json",
+                            "\", {onProgress: UnityProgress});"
+                        ]
+                    ]
+                ],
+                "css" => ["CS/TemplateData/style.css"]
+            ]);
+
         $manager->persist($projet);
 
         $projet = new Project();
@@ -165,7 +257,12 @@ class ProjetFixtures extends Fixture implements DependentFixtureInterface
                         "Amarok/TemplateData/UnityProgress.js",
                         "Amarok/Build/UnityLoader.js"
                     ],
-                    "raw" => ["var gameInstance = UnityLoader.instantiate(\"unityContainer\", {{ asset(\"Amarok/Build/Amarok- WebGl.json\") }}, {onProgress: UnityProgress});"]
+                    "raw" => [
+                        ["var gameInstance = UnityLoader.instantiate(\"unityContainer\", \"",
+                            "Amarok/Build/Amarok- WebGl.json",
+                            "\" ,{onProgress: UnityProgress});"
+                        ]
+                    ]
                 ],
                 "css" => ["Amarok/TemplateData/style.css"]
             ]);

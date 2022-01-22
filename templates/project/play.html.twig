@@ -2,38 +2,68 @@
 
 {% block title %}{{ projet.name }}{% endblock %}
 
+
 {% block stylesheets_play %}
-    {% for css_src in projet.playAssets["css"] %}
-        <link rel="stylesheet" href="{{ asset(css_src) }}">
-    {% endfor %}
+    {% if  projet.playAssets|length > 0 %}
+        {% for css_src in projet.playAssets["css"] %}
+            <link rel="stylesheet" href="{{ asset(css_src) }}">
+        {% endfor %}
+    {% endif %}
 {% endblock %}
 
 {% block body %}
-    <main class="page project-page">
-        <section class="portfolio-block project">
-            <div class="container">
-                <div class="heading">
-                    <h2>{{ projet.name }}</h2>
-                </div>
-                <div class="d-xl-flex justify-content-xl-center align-items-xl-center" style="height: 700px;">
-                    <div id="unityContainer" style="width: 90%;height: 90%;"></div>
-                    <div class="webgl-footer">
-                        <div class="webgl-logo"></div>
-                        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-                        <div class="title"></div>
+    {% if  projet.playAssets|length > 0 %}
+        <main class="page project-page">
+            <section class="portfolio-block project">
+                <div class="container">
+                    <div class="heading">
+                        <h2>{{ projet.name }}</h2>
                     </div>
+                    <div class="d-xl-flex justify-content-xl-center align-items-xl-center" style="height: 700px;">
+                        <div id="unityContainer" style="width: 90%;height: 90%;">
+                            <canvas id="unity-canvas" width=960 height=600></canvas>
+                            <div id="unity-loading-bar">
+                                <div id="unity-logo"></div>
+                                <div id="unity-progress-bar-empty">
+                                    <div id="unity-progress-bar-full"></div>
+                                </div>
+                            </div>
+                            <div id="unity-footer">
+                                <div id="unity-webgl-logo"></div>
+                                <div id="unity-fullscreen-button"></div>
+                                <div id="unity-build-title"></div>
+                            </div>
+                            <div class="webgl-footer">
+                                <div class="webgl-logo"></div>
+                                <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+                                <div class="title"></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% include('project/more.html.twig') %}
                 </div>
-                {% include('project/more.html.twig') %}
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    {% else %}
+        <main class="page project-page">
+            <section class="portfolio-block project">
+                <div class="container">
+                    <div>Ce projet ne dispose pas d'une version jouable</div>
+                </div>
+            </section>
+        </main>
+    {% endif %}
 {% endblock %}
 
 {% block javascripts_play %}
-    {% for script_src in projet.playAssets["scripts"]["src"] %}
-        <script src="{{ asset(script_src) }}"></script>
-    {% endfor %}
-    {% for script_raw in projet.playAssets["scripts"]["raw"] %}
-        <script>{{ script_raw }}</script>
-    {% endfor %}
-{% endblock %}
+    {% if  projet.playAssets|length > 0 %}
+        {% for script_src in projet.playAssets["scripts"]["src"] %}
+            <script src="{{ asset(script_src) }}"></script>
+        {% endfor %}
+        {% for script_raw in projet.playAssets["scripts"]["raw"] %}
+            {{ dump(script_raw[1]) }}
+            {% set raw = script_raw[0] ~ asset(script_raw[1]) ~ script_raw[2] %}
+            <script>{{ raw|raw }}</script>
+        {% endfor %}
+    {% endif %}
+    {% endblock %}
