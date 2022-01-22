@@ -61,7 +61,6 @@
             <script src="{{ asset(script_src) }}"></script>
         {% endfor %}
         {% for script_raw in projet.playAssets["scripts"]["raw"] %}
-            {{ dump(script_raw[1]) }}
             {% set raw = script_raw[0] ~ asset(script_raw[1]) ~ script_raw[2] %}
             <script>{{ raw|raw }}</script>
         {% endfor %}
